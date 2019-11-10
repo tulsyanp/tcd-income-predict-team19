@@ -1,0 +1,6 @@
+__pycache__
+.idea
+submission*
+test.csv
+train.csv
+.pkl
