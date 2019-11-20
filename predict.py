@@ -27,7 +27,7 @@ predictionDataRenamed = rename_data(predictionData)
 
 trainDataProcessed, predictionDataProcessed = data_pre_processing(trainingDataRenamed, predictionDataRenamed)
 
-trainDataProcessed = remove_outliers(trainDataProcessed)
+# trainDataProcessed = remove_outliers(trainDataProcessed)
 
 print("1")
 

@@ -48,8 +48,8 @@ def year_of_record(trainData, predictionData):
     trainData['year_of_record'].fillna(median_value, inplace=True)
     predictionData['year_of_record'].fillna(median_value, inplace=True)
 
-    trainData['year_of_record'] = trainData['year_of_record'] ** (1 / 2)
-    predictionData['year_of_record'] = predictionData['year_of_record'] ** (1 / 2)
+    # trainData['year_of_record'] = trainData['year_of_record'] ** (1 / 2)
+    # predictionData['year_of_record'] = predictionData['year_of_record'] ** (1 / 2)
 
     return trainData, predictionData
 
@@ -76,11 +76,11 @@ def gender(trainData, predictionData):
     maximum_occ = trainData['gender'].mode().iloc[0]
 
     trainData['gender'].fillna(maximum_occ, inplace=True)
-    trainData['gender'].replace(['0', 'f'], ['missing', 'female'], inplace=True)
+    trainData['gender'].replace(['0', 'f'], ['missing', 'f'], inplace=True)
     trainData['gender'] = trainData['gender'].str.strip()
 
     predictionData['gender'].fillna(maximum_occ, inplace=True)
-    predictionData['gender'].replace(['0', 'f'], ['missing', 'female'], inplace=True)
+    predictionData['gender'].replace(['0', 'f'], ['missing', 'f'], inplace=True)
     predictionData['gender'] = predictionData['gender'].str.strip()
 
     return trainData, predictionData
@@ -90,10 +90,10 @@ def age(trainData, predictionData):
     mean_value = round(trainData['age'].mean())
 
     trainData['age'].fillna(mean_value, inplace=True)
-    trainData['age'] = trainData['age'] ** (1 / 2)
+    # trainData['age'] = trainData['age'] ** (1 / 2)
 
     predictionData['age'].fillna(mean_value, inplace=True)
-    predictionData['age'] = predictionData['age'] ** (1 / 2)
+    # predictionData['age'] = predictionData['age'] ** (1 / 2)
 
     return trainData, predictionData
 

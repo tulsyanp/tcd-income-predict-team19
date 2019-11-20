@@ -4,7 +4,7 @@ from scipy import stats
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-from encoding import one_hot_encoder, target_mean_encoding, ordinal_encoding
+from encoding import one_hot_encoder, target_mean_encoding, ordinal_encoding, leave_one_out_encoding
 from preprocess import additional_income, housing_situation, work_experience, year_of_record, satisfaction, gender, \
     age, country, profession, degree, hair_color
 
@@ -68,7 +68,7 @@ def encoding(trainData, predictionData):
 
     print(predictionDataFrame.shape)
 
-    trainDataFrame1, predictionDataFrame1 = target_mean_encoding(trainDataFrame, predictionDataFrame)
+    trainDataFrame1, predictionDataFrame1 = leave_one_out_encoding(trainDataFrame, predictionDataFrame)
 
     print(predictionDataFrame1.shape)
 

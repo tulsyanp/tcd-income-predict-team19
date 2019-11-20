@@ -51,7 +51,7 @@ def model_xgboost_predict(X, y, predictionDataFrame):
 
 
 def model_lightbgm_predict(X, y, predictionDataFrame):
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=0)
 
     params = {
         'max_depth': 20,
