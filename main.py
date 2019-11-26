@@ -35,6 +35,9 @@ def data_pre_processing(trainData, predictionData):
 
     # dataFrame = dataFrame.drop(columns=['crime_level', 'city_size', 'glasses', 'height'])
 
+    trainData = trainData.drop(columns=['instance'])
+    predictionData = predictionData.drop(columns=['instance'])
+
     trainData, predictionData = additional_income(trainData, predictionData)
 
     trainData, predictionData = housing_situation(trainData, predictionData)
@@ -60,19 +63,19 @@ def data_pre_processing(trainData, predictionData):
     return trainData, predictionData
 
 
-def encoding(trainData, predictionData):
+def encoding(trainData, predictionData, target):
 
-    print(predictionData.shape)
+    # print(predictionData.shape)
+    #
+    # trainDataFrame, predictionDataFrame = one_hot_encoder(trainData, predictionData)
+    #
+    # print(predictionDataFrame.shape)
 
-    trainDataFrame, predictionDataFrame = one_hot_encoder(trainData, predictionData)
+    trainDataFrame, predictionData = target_mean_encoding(trainData, predictionData, target)
 
-    print(predictionDataFrame.shape)
+    print(trainDataFrame.shape)
 
-    trainDataFrame1, predictionDataFrame1 = leave_one_out_encoding(trainDataFrame, predictionDataFrame)
-
-    print(predictionDataFrame1.shape)
-
-    return trainDataFrame1, predictionDataFrame1
+    return trainDataFrame, predictionData
 
 
 def remove_outliers(data):

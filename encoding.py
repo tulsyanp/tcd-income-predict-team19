@@ -41,13 +41,11 @@ def hash_encoding(trainData, predictionData):
     return trainDataFrame, predictionDataFrame
 
 
-def target_mean_encoding(trainData, predictionData):
+def target_mean_encoding(trainData, predictionData, target):
 
     oEncoder = ce.TargetEncoder(
-        cols=['country', 'profession', 'degree'],
-        smoothing=10
+        cols=['housing_situation', 'satisfaction', 'gender', 'hair_color', 'country', 'profession', 'degree']
     )
-    target = trainData['total_income']
 
     oEncoder.fit(trainData, target)
     trainDataFrame = oEncoder.transform(trainData)

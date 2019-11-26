@@ -51,7 +51,7 @@ def model_xgboost_predict(X, y, predictionDataFrame):
 
 
 def model_lightbgm_predict(X, y, predictionDataFrame):
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=0)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
 
     params = {
         'max_depth': 20,
@@ -62,12 +62,12 @@ def model_lightbgm_predict(X, y, predictionDataFrame):
         "verbosity": -1,
     }
 
-    train_data = lgb.Dataset(X_train, label=y_train)
+    train_data = lgb.Dataset(X, label=y)
     test_data = lgb.Dataset(X_test, label=y_test)
 
-    model = lgb.train(params, train_data, 100000, valid_sets=[train_data, test_data], verbose_eval=1000, early_stopping_rounds=500)
+    model = lgb.train(params, train_data, 200000, valid_sets=[train_data, test_data], verbose_eval=1000, early_stopping_rounds=500)
 
-    saved_model = joblib.dump(model, 'lgb_model.pkl')
+    saved_model = joblib.dump(model, 'lgb_model1.pkl')
 
     y_pred = model.predict(X_test, num_iteration=model.best_iteration)
 
@@ -91,21 +91,18 @@ def calculate_score(test, pred):
     print(accuracy)
 
 
-def generate_csv(dataset, prediction):
-    dataset['total_income'] = prediction
-    dataFrame = pd.DataFrame({
-        'Instance': dataset['instance'],
-        'Total Yearly Income [EUR]': dataset['total_income']
-    })
-    dataFrame.to_csv('submission1.csv', index=False)
+def generate_csv(prediction):
+    submission = pd.read_csv("submission-sample.csv")
+    submission['Total Yearly Income [EUR]'] = prediction
+    submission.to_csv('submission1.csv', index=False)
 
-    return dataFrame
+    return submission
 
 
 def predict(model, predictionDataFrame):
-    P_test = predictionDataFrame.loc[:, predictionDataFrame.columns != 'total_income']
-    P_pred = model.predict(P_test, num_iteration=model.best_iteration)
-    generate_csv(predictionDataFrame, P_pred)
+    # P_test = predictionDataFrame.loc[:, predictionDataFrame.columns != 'total_income']
+    P_pred = np.exp(model.predict(predictionDataFrame, num_iteration=model.best_iteration))
+    generate_csv(P_pred)
     print('Predicted CSV generated')
 
 
@@ -115,4 +112,4 @@ def generate_graph(test, pred):
     df1.plot(kind='bar', figsize=(10, 8))
     plt.grid(which='major', linestyle='-', linewidth='0.5', color='green')
     plt.grid(which='minor', linestyle=':', linewidth='0.5', color='black')
-    plt.savefig('Actual Vs. Prediction.png')
+    plt.savefig('Actual Vs. Prediction1.png')

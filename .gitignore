@@ -1,6 +1,6 @@
 __pycache__
 .idea
-submission*
+submission-sample.csv
 test.csv
 train.csv
-.pkl
+*.pkl
