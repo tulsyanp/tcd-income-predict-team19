@@ -1,9 +1,11 @@
 # Machine Learning Model to Predict Income
 
+### The best algorithm using which the income is predicted is LIGHTGBM
+
 ### Required dependencies: 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install dependencies.
 ```
-pandas, numpy, sklearn
+pandas, numpy, sklearn, lightgbm, categorical_encoders, matplotlib, seaborn
 ```
 
 ### Steps to Predict Output
@@ -16,6 +18,10 @@ pandas, numpy, sklearn
 model_linear_regression_predict(X, y, predictionDataFrame) # Linear Regression Model
 
 model_random_forest_predict(X, y, predictionDataFrame) # Random Forest Model
+
+model_xgboost_predict(X, y, predictionDataFrame) # XGBoost
+
+model_lightbgm_predict(X, y, predictionDataFrame) # LightGBM
 ```
 
 
@@ -29,4 +35,4 @@ model_random_forest_predict(X, y, predictionDataFrame) # Random Forest Model
 7. Returns CSV for the prediction of income on the test dataset : ```submission.csv```
 
 ### Check Profile Score (Kaggle)
-[click here!](https://www.kaggle.com/aa530538bf3553fe1a52)
+[click here!](https://www.kaggle.com/c/tcd-ml-comp-201920-income-pred-group/leaderboard)

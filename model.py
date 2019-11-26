@@ -94,7 +94,7 @@ def calculate_score(test, pred):
 def generate_csv(prediction):
     submission = pd.read_csv("submission-sample.csv")
     submission['Total Yearly Income [EUR]'] = prediction
-    submission.to_csv('submission1.csv', index=False)
+    submission.to_csv('submission.csv', index=False)
 
     return submission
 
@@ -112,4 +112,4 @@ def generate_graph(test, pred):
     df1.plot(kind='bar', figsize=(10, 8))
     plt.grid(which='major', linestyle='-', linewidth='0.5', color='green')
     plt.grid(which='minor', linestyle=':', linewidth='0.5', color='black')
-    plt.savefig('Actual Vs. Prediction1.png')
+    plt.savefig('Actual Vs. Prediction.png')

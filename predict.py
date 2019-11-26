@@ -48,5 +48,5 @@ print("2")
 # Uncomment to predict using XGBoost
 # model_xgboost_predict(X, y, predictionDataFrame)
 
-# Uncomment to predict using XGBoost
+# Uncomment to predict using LightGBM
 model_lightbgm_predict(X, y, predictionDataFrame)
