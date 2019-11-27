@@ -1,6 +1,12 @@
 # Machine Learning Model to Predict Income
 
-### The best algorithm using which the income is predicted is LIGHTGBM
+### Rank #2 - The best algorithm using which the income is predicted is LIGHTGBM
+
+## Things that worked
+1. Creating a separate category or no category while using target encoding for categorical variables.
+2. Creating a separating category for each special variables like: 0, '0', 'nA', #NUM!
+3. Running 200000 iterations for lightGBM gave a score jump of around 200 - 300 points.
+4. Target encoding for categorical variables
 
 ### Required dependencies: 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install dependencies.
