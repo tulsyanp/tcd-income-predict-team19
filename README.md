@@ -7,7 +7,7 @@
 2. Creating a separating category for each special variables like: 0, '0', 'nA', #NUM!
 3. Running 200000 iterations for lightGBM gave a score jump of around 200 - 300 points.
 4. Target encoding for categorical variables
-5. np.log target variable before target encoding and then encoding the categorical variables. Gave ajump of around 500 points.
+5. np.log target variable before target encoding and then encoding the categorical variables. Gave a jump of around 500 points.
 
 ### Required dependencies: 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install dependencies.
@@ -38,7 +38,7 @@ model_lightbgm_predict(X, y, predictionDataFrame) # LightGBM
 3. Reads the dataset on which income output is to be predicted ```test.csv```
 4. Renames the column of training dataset
 4. Pass both the dataset for preprocessing
-5. After preprocessing, pass bothe the preprocessed dataset for target encoding
+5. After preprocessing, pass both the preprocessed dataset for target encoding
 6. Performs training of the model on the training dataset using LIGHTGBM
 7. Returns CSV for the prediction of income on the test dataset using ```sample-submission.csv``` : ```submission.csv```
 
