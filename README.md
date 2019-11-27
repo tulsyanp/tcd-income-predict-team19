@@ -16,7 +16,7 @@ pandas, numpy, sklearn, lightgbm, categorical_encoders, matplotlib, seaborn
 
 ### Steps to Predict Output
 
-1. In file ```predict.py```, uncomment the model that you want to use for prediction (By default, it runs random forest)
+1. In file ```predict.py```, uncomment the model that you want to use for prediction (By default, it runs LIGHTGBM)
 2. Run the command  ```python predict.py```
 3. After a wait of few minutes the predicted result in generated in the file ```submission.csv```
 4. To change model, uncomment following in ```predict.py``` and follow step 2.
