@@ -7,6 +7,7 @@
 2. Creating a separating category for each special variables like: 0, '0', 'nA', #NUM!
 3. Running 200000 iterations for lightGBM gave a score jump of around 200 - 300 points.
 4. Target encoding for categorical variables
+5. np.log target variable before target encoding and then encoding the categorical variables. Gave ajump of around 500 points.
 
 ### Required dependencies: 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install dependencies.
